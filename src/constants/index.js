@@ -1,9 +1,13 @@
 import project1 from "../assets/yo.png";
 import project2 from "../assets/yo.png";
 import project3 from "../assets/yo.png";
-// import project4 from "../assets/projects/project-4.jpg";
+import project4 from "../assets/yo.png";
 
-export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. With 5 years of hands-on experience, I have honed my skills in front-end technologies like React and Next.js, as well as back-end technologies like Node.js, MySQL, PostgreSQL, and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
+export const HERO_CONTENT = `Soy un nerd de la tecnología y me adapto facilmente a nuevos
+ proyectos. En mi carrera, desarrolle habilidades en análisis funcional y testeo de aplicaciones,
+  lo que me ha permitido colaborar con equipos de trabajo y ágiles. Mi experiencia abarca
+  desde soporte técnico y desarrollar webs, ademas comprendo como implementar soluciones
+  en el sectores, con un enfoque en Java, APIs , microservicios, con Mariadb, postman y javascript`;
 
 export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
 
@@ -59,7 +63,14 @@ modeling, Flex box, Grids, animaciones, GitHub, guía
 para hacer las buenas prácticas en programación,
 seguimiento de alumnos.
 `,
-    technologies: ["Javascript", "HTML", "CSS", "SASS", "Responsive web","Git"],
+    technologies: [
+      "Javascript",
+      "HTML",
+      "CSS",
+      "SASS",
+      "Responsive web",
+      "Git",
+    ],
   },
   {
     year: "2017 - 2020",
@@ -71,7 +82,13 @@ de conexión y perdida de señal. Instalación de cable,
 internet y telefonía domiciliarias. Conocimientos y
 experiencia solida en instalación de fibra óptica
 `,
-    technologies: ["Configuracion de Redes", "TCP/IP", "ROUTERS", "DECODIFICAODRES", "SIGMA"],
+    technologies: [
+      "Configuracion de Redes",
+      "TCP/IP",
+      "ROUTERS",
+      "DECODIFICAODRES",
+      "SIGMA",
+    ],
   },
 ];
 
@@ -104,7 +121,6 @@ export const PROJECTS = [
       "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
     technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
   },
-
 ];
 
 export const CONTACT = {

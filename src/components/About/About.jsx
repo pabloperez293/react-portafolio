@@ -1,5 +1,5 @@
 import aboutImg from "/src/assets/yo.png";
-import {ABOUT_TEXT} from "/src/constants";
+import { ABOUT_TEXT } from "/src/constants";
 
 const About = () => {
   return (
@@ -9,16 +9,14 @@ const About = () => {
       </h2>
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/2 lg:p-8">
-        <div className="flex items-center justify-center">
-
-        <img className="" src={aboutImg} alt="SobreMi" />
+          <div className="flex items-center justify-center">
+            <img className="" src={aboutImg} alt="SobreMi" />
+          </div>
+          
         </div>
         <div className="flex justify-center lg:justify-start">
-          <p>{ABOUT_TEXT}</p>
-        </div>
-
-        </div>
-
+            <p className="my-2 max-w-xl py-6">{ABOUT_TEXT}</p>
+          </div> 
       </div>
     </div>
   );

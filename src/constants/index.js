@@ -9,7 +9,13 @@ export const HERO_CONTENT = `Soy un nerd de la tecnología y me adapto facilment
   desde soporte técnico y desarrollar webs, ademas comprendo como implementar soluciones
   en el sectores, con un enfoque en Java, APIs , microservicios, con Mariadb, postman y javascript`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
+export const ABOUT_TEXT = `Me gusta trabajar en equipo , soy un estusiasta en la
+tecnologia que continuamente se actualiza , me
+motiva seguir aprendiendo y tengo facilidad en el
+cambio de proyectos , ademas cuento con facilidad
+en el análisis funcional y testeo de aplicaciones
+como objetivo de carrera profesional y comprender las herramientas de
+React, Node.js, SQL. java, springboot, javascript.`;
 
 export const EXPERIENCES = [
   {

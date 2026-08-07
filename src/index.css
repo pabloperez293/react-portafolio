@@ -7,3 +7,13 @@
 :root {
     font-family: "Roboto Condensed", sans-serif;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* focus outline for accessibility */
+*:focus {
+    outline: 2px solid rgba(6,95,70,0.12);
+    outline-offset: 2px;
+}

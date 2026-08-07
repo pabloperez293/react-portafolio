@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
 import Tecno from "./components/Tencno/Tecno";
 import Experience from "./components/Exper/Experience";
+import Contact from "./components/Contact/Contact";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const App = () => {
+  useEffect(() => {
+    AOS.init({ once: true, duration: 800 });
+  }, []);
+
   return (
     <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900 ">
       <div className="fixed top-0 -z-10 h-full w-full"><div
@@ -18,6 +26,7 @@ const App = () => {
         <Hero />
         <About />
         <Tecno />
+        <Contact />
         <Experience />
       </div>
     </div>

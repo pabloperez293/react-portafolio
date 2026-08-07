@@ -43,10 +43,10 @@ const Contact = () => {
       <h2 data-aos="fade-up" className="text-center text-4xl mb-8">Contacto</h2>
 
       <div className="max-w-3xl mx-auto bg-gradient-to-br from-neutral-900/60 to-neutral-800/60 p-8 rounded-2xl shadow-lg border border-neutral-800" data-aos="fade-up" data-aos-delay="100">
-        <div className="flex items-center gap-4 mb-6">
-          <Mail className="text-cyan-400" />
-          <p className="text-sm text-neutral-400">¿Tienes un proyecto? Escríbeme.</p>
-        </div>
+          <div className="flex items-center gap-4 mb-6">
+            <Mail className="text-brand-300" />
+            <p className="text-sm text-neutral-400">¿Tienes un proyecto? Escríbeme.</p>
+          </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input aria-label="Nombre" name="name" value={form.name} onChange={handleChange} placeholder="Nombre" className="w-full bg-neutral-800/60 backdrop-blur-sm p-3 rounded-md border border-neutral-700" />
@@ -54,7 +54,7 @@ const Contact = () => {
           <textarea aria-label="Mensaje" name="message" value={form.message} onChange={handleChange} placeholder="Mensaje" rows="6" className="w-full bg-neutral-800/60 p-3 rounded-md border border-neutral-700" />
 
           <div className="flex items-center justify-between">
-            <button disabled={sending} type="submit" className={`px-6 py-2 rounded-md font-semibold transition-all ${sending ? 'bg-cyan-200/60 text-neutral-700' : 'bg-cyan-400 text-cyan-900 hover:scale-105'}`}>
+            <button disabled={sending} type="submit" className={`px-6 py-2 rounded-md font-semibold transition-all ${sending ? 'bg-brand-200/40 text-neutral-700' : 'bg-brand-500 text-neutral-900 hover:scale-105'}`}>
               {sending ? 'Enviando...' : 'Enviar'}
             </button>
             <div className="min-w-[220px]">

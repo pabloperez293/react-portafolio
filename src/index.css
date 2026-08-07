@@ -1,19 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+﻿@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
-:root {
-    font-family: "Roboto Condensed", sans-serif;
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --color-bg: #FDFDFD;
+    --color-text: #0F172A;
+    --color-muted: #475569;
+    --color-accent: #FF5722;
+    --color-accent-soft: rgba(255, 87, 34, 0.12);
+  }
+
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #ef4444;
+    color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-serif {
+    font-family: var(--font-serif);
+  }
 }
 
-html {
-    scroll-behavior: smooth;
+.bg-grid-pattern {
+  background-image: radial-gradient(var(--color-text) / 0.08 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* focus outline for accessibility */
-*:focus {
-    outline: 2px solid rgba(6,95,70,0.12);
-    outline-offset: 2px;
+.hero-accent-ring {
+  box-shadow: inset 0 0 0 1px rgba(255, 87, 34, 0.12), 0 24px 80px -40px rgba(15, 23, 42, 0.3);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-accent-soft {
+  background-color: var(--color-accent-soft);
 }

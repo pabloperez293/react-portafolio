@@ -1,100 +1,131 @@
-import project1 from "../assets/yo.png";
+﻿import project1 from "../assets/yo.png";
 import project2 from "../assets/yo.png";
 import project3 from "../assets/yo.png";
 import project4 from "../assets/yo.png";
 
-export const HERO_CONTENT = `Soy un nerd de la tecnología y me adapto facilmente a nuevos
- proyectos. En mi carrera, desarrolle habilidades en análisis funcional y testeo de aplicaciones,
-  lo que me ha permitido colaborar con equipos de trabajo y ágiles. Mi experiencia abarca
-  desde soporte técnico y desarrollar webs, ademas comprendo como implementar soluciones
-  en el sectores, con un enfoque en Java, APIs , microservicios, con Mariadb, postman y javascript`;
+export const PROFILE = {
+  name: "Pablo Perez",
+  role: "Analista Funcional | IT Business Analyst Jr. & Java Developer",
+  email: "pablodevperez@gmail.com",
+  phone: "+54 9 11 7236-1058",
+  location: "Buenos Aires, Argentina",
+  linkedin: "https://linkedin.com/in/devpabloperez",
+  github: "https://github.com/pabloperezdev",
+};
 
-export const ABOUT_TEXT = `Me gusta trabajar en equipo , soy un estusiasta en la
-tecnologia que continuamente se actualiza , me
-motiva seguir aprendiendo y tengo facilidad en el
-cambio de proyectos , ademas cuento con facilidad
-en el análisis funcional y testeo de aplicaciones
-como objetivo de carrera profesional y comprender las herramientas de
-React, Node.js, SQL. java, springboot, javascript.`;
+export const HERO_PROFILES = {
+  funcional: {
+    key: "funcional",
+    label: "Analista Funcional",
+    title: "Analista Funcional",
+    subtitle: "Transformo requerimientos de negocio en soluciones estructuradas.",
+    description:
+      "Analista Funcional y Desarrollador de Software con experiencia en análisis de incidencias, documentación, integración de APIs REST y resolución de problemas. Especializado en conectar objetivos de negocio con soluciones técnicas claras.",
+    cv: "/assets/cv-analista-funcional.pdf",
+  },
+  java: {
+    key: "java",
+    label: "Java Developer",
+    title: "Java Developer",
+    subtitle: "Construyo backend escalable en Java y Spring Boot.",
+    description:
+      "Analista Funcional y Desarrollador de Software con experiencia en construir backend escalable con Java y Spring Boot, integrando APIs REST eficientes y mantenibles para aplicaciones críticas.",
+    cv: "/assets/cv-java-developer.pdf",
+  },
+};
+
+export const ABOUT_TEXT =
+  "Analista Funcional y Desarrollador de Software con experiencia en análisis de incidencias, documentación técnica, integración de APIs REST y resolución de problemas. Mi enfoque está en transformar requerimientos de negocio en soluciones estructuradas y backend escalable con Java, Spring Boot y React.";
 
 export const EXPERIENCES = [
   {
-    year: "2024 - Present",
-    role: "Programador Web Freelance",
-    company: "Akirento",
-    description: `Desarrollo y ajuste de funcionalidades en sitios web WordPress
-WooCommerce, Parametrización de áreas de cobertura, tarifas,
-y transporte utilizando códigos postales.Optimización de SEO: análisis de palabras clave, estructura del
-sitio, velocidad, y compatibilidad móvil, Desarrollo e integración
-de chatbots (WhatsApp) y APIs `,
-    technologies: ["Wordpress", "CSS", "Plantillas", "SEO"],
+    range: "Dic. 2024 – Actualidad",
+    role: "Desarrollador Web Freelance",
+    company: "Freelance",
+    description:
+      "Relevamiento de requerimientos junto al cliente, documentación funcional y priorización de tareas. Diseño e implementación de APIs REST y operaciones CRUD con Spring Data JPA, Hibernate y MySQL.",
+    stack: ["ReactJS", "Spring Boot", "MySQL", "REST API", "Git"],
+    tags: ["funcional", "java"],
   },
   {
-    year: "2023 - 2024",
-    role: "Software Enginner |",
+    range: "Ago. 2024 – Dic. 2024",
+    role: "Analista Tech Engineer",
     company: "Eldar",
-    description: `Desarrollo e Implementación en java con spring boot
-, uso de Api-Rest realizando operaciones de
-microservicios , en partes se realizan gestiones
-monolítica.
-A su vez en la financiera estoy en proyectos con java
-y angular para la empresa cabal desarrollando un
-testeo de aplicacion y su funcionamiento.
-`,
-    technologies: ["Java", "Springboot", "Mariadb", "Angular"],
+    description:
+      "Gestión y seguimiento de incidencias con Jira, colaborando con Desarrollo, QA y DevOps. Validación de requerimientos con usuarios internos y elaboración de escenarios de prueba.",
+    stack: ["Jira", "Confluence", "SQL", "Testing Funcional", "Agile"],
+    tags: ["funcional"],
   },
   {
-    year: "2020 - 2023",
-    role: "Tech Enginner",
-    company: "Telecom",
-    description: `Analizar, generar la documentación en JIRA y dejar
-en el confluence el progreso de las mismas, usamos
-tableros agile para el backlog . Probar casos de uso
-sobre funcionalidades nuevas o existentes sobre el
-ecosistema de Flow. Ejecutar planes de prueba para
-validar el funcionamiento utilizando Postman en los
-servicios y funcionalidades que están siendo
-desplegadas.`,
-    technologies: ["Grafana", "Postman", "clusters", "Servidores"],
+    range: "Oct. 2023 – Sep. 2024",
+    role: "Analista Técnico – Java",
+    company: "Akirento",
+    description:
+      "Relevamiento, análisis y documentación de incidencias, validación de desarrollos en ambientes de prueba y acompañamiento al equipo técnico durante el ciclo de entrega.",
+    stack: ["Java", "Spring Boot", "Hibernate", "REST API", "Scrum"],
+    tags: ["java"],
   },
   {
-    year: "2022 - 2022",
-    role: "Tutor Desarrollo web",
-    company: "Coder House",
-    description: `Corregir códigos de maquetación web como html,
-css , sass , uso del SEO y para diseños responsive
-usamos bootstrap que ya viene precargado los
-diseños. En detalle dejo los temas vistos, Box
-modeling, Flex box, Grids, animaciones, GitHub, guía
-para hacer las buenas prácticas en programación,
-seguimiento de alumnos.
-`,
-    technologies: [
-      "Javascript",
-      "HTML",
-      "CSS",
-      "SASS",
-      "Responsive web",
-      "Git",
-    ],
+    range: "Oct. 2020 – Oct. 2023",
+    role: "Analista Funcional / Desarrollador Jr.",
+    company: "Telecom Argentina (Flow)",
+    description:
+      "Análisis de aplicaciones de alto tráfico, documentación de incidencias y validación de nuevas funcionalidades e integraciones antes de producción.",
+    stack: ["Jira", "Postman", "Flujo de usuarios", "Testing", "Seguimiento de defectos"],
+    tags: ["funcional"],
   },
   {
-    year: "2017 - 2020",
-    role: "Tecnico Instalador",
-    company: "Cablevision",
-    description: `Medición y manejo de fibra óptica, capacidad para
-realizar tareas en altura. Diagnóstico de problemas
-de conexión y perdida de señal. Instalación de cable,
-internet y telefonía domiciliarias. Conocimientos y
-experiencia solida en instalación de fibra óptica
-`,
-    technologies: [
-      "Configuracion de Redes",
-      "TCP/IP",
-      "ROUTERS",
-      "DECODIFICAODRES",
-      "SIGMA",
-    ],
+    range: "Abr. 2022 – Sep. 2022",
+    role: "Tutor de Desarrollo Web",
+    company: "Coderhouse",
+    description:
+      "Seguimiento, feedback y corrección de proyectos frontend en HTML, CSS y JavaScript, con foco en diseño responsive y buenas prácticas de código.",
+    stack: ["HTML", "CSS", "JavaScript", "Responsive Design", "Git"],
+    tags: ["funcional"],
+  },
+];
+
+export const EDUCATION = [
+  {
+    institution: "Universidad Nacional de Hurlingham",
+    title: "Tecnicatura Universitaria en Programación",
+    date: "2024 – Actualidad",
+    status: "En curso",
+  },
+  {
+    institution: "Instituto Galileo Galilei",
+    title: "Analista de Sistemas",
+    date: "2016",
+    status: "Incompleto",
+  },
+  {
+    institution: "Instituto Galileo Galilei",
+    title: "Técnico en Informática",
+    date: "2014",
+    status: "Finalizado",
+  },
+];
+
+export const CERTIFICATIONS = [
+  {
+    title: "Talent Tech 2026",
+    detail: "Backend Java, Python",
+    date: "2026",
+  },
+  {
+    title: "Talent Tech 2025",
+    detail: "Web / React.js",
+    date: "2025",
+  },
+  {
+    title: "Red Hat System Administration I",
+    detail: "Linux & DevOps básico",
+    date: "2024",
+  },
+  {
+    title: "Inglés Técnico B1",
+    detail: "Comunicación técnica en entornos IT",
+    date: "2024",
   },
 ];
 
@@ -130,7 +161,7 @@ export const PROJECTS = [
 ];
 
 export const CONTACT = {
-  address: "767 Fifth Avenue, New York, NY 10153 ",
-  phoneNo: "+12 4555 666 00 ",
-  email: "me@example.com",
+  address: "Buenos Aires, Argentina",
+  phoneNo: "+54 9 11 7236-1058",
+  email: "pablodevperez@gmail.com",
 };

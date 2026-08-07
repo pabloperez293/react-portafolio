@@ -1,36 +1,35 @@
-import { useEffect } from "react";
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import About from "./components/About/About";
-import Tecno from "./components/Tencno/Tecno";
-import Experience from "./components/Exper/Experience";
-import Contact from "./components/Contact/Contact";
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const App = () => {
+import Hero from './components/sections/Hero';
+import About from './components/About/About';
+import Experience from './components/Exper/Experience';
+import Education from './components/sections/Education';
+import Projects from './components/sections/Projects';
+import Contact from './components/sections/Contact';
+
+export default function App() {
   useEffect(() => {
-    AOS.init({ once: true, duration: 800 });
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-cubic',
+    });
   }, []);
 
   return (
-    <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900 ">
-      <div className="fixed top-0 -z-10 h-full w-full"><div
-        className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-      ></div></div>
-      
-
-      <div className="container mx-auto px-8">
-        <Navbar />
+    <div className="min-h-screen bg-[#FDFDFD] text-slate-900 font-sans selection:bg-red-500 selection:text-white">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-12">
         <Hero />
         <About />
-        <Tecno />
-        <Contact />
         <Experience />
-      </div>
+        <Education />
+        <section id="projects" className="scroll-mt-20">
+          <Projects />
+        </section>
+        <Contact />
+      </main>
     </div>
   );
-};
-
-export default App;
+}

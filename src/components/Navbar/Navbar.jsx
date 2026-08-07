@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <a href="#home" className="flex items-center gap-2 text-base font-semibold uppercase tracking-[0.22em] text-slate-950">
             <motion.span whileHover={{ rotate: 12, scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
-              <Coffee className="h-5 w-5 text-red-600" />
+              <Coffee className="h-5 w-5 text-indigo-600" />
             </motion.span>
             Pablo Perez
           </a>

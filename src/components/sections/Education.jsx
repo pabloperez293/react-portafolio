@@ -77,7 +77,7 @@ const Education = () => {
                   key={index}
                   type="button"
                   onClick={() => setSelectedCert(cert.title)}
-                  className="w-full rounded-3xl border border-slate-100 bg-slate-50 p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-red-200"
+                  className="w-full rounded-3xl border border-slate-100 bg-slate-50 p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-indigo-200"
                 >
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div>

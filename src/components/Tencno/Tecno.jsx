@@ -15,13 +15,13 @@ const Tecno = () => {
       <h2 className="my-20 text-center text-4xl"> Tecnologias </h2>
       <div className="flex flex-wrap items-center justify-center gap-4">
         <div className="rounded-2xl border-4 border-neutral-700 p-4">
-          <FaAngular className="text-7xl text-red-800" />
+          <FaAngular className="text-7xl text-indigo-800" />
         </div>
         <div className="rounded-2xl border-4 border-neutral-700 p-4">
           <RiReactjsLine className="text-7xl text-cyan-300" />
         </div>
         <div className="rounded-2xl border-4 border-neutral-700 p-4">
-          <RiJavaFill className="text-7xl text-red-500" />
+          <RiJavaFill className="text-7xl text-indigo-500" />
         </div>
 
         <div className="rounded-2xl border-4 border-neutral-700 p-4">

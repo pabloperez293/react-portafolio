@@ -1,5 +1,8 @@
-﻿import { useEffect, useState } from 'react';
+﻿// Componente Navbar: navegación superior fija para moverse entre secciones de la página.
+import { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa6';
+import { Coffee } from 'lucide-react';
+import { motion } from 'framer-motion';
 import useActiveSection from '../../hooks/useActiveSection';
 
 const PROFILE_BUTTONS = [
@@ -51,7 +54,10 @@ const Navbar = () => {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <a href="#home" className="text-base font-semibold uppercase tracking-[0.22em] text-slate-950">
+          <a href="#home" className="flex items-center gap-2 text-base font-semibold uppercase tracking-[0.22em] text-slate-950">
+            <motion.span whileHover={{ rotate: 12, scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
+              <Coffee className="h-5 w-5 text-red-600" />
+            </motion.span>
             Pablo Perez
           </a>
 
@@ -102,7 +108,7 @@ const Navbar = () => {
       {open && (
         <div className="fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-sm md:hidden">
           <div
-            className="absolute right-4 top-24 left-4 rounded-[2rem] border border-slate-200/40 bg-white/95 p-6 shadow-2xl"
+            className="absolute right-4 top-24 left-4 rounded-4xl border border-slate-200/40 bg-white/95 p-6 shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mb-6 flex flex-col gap-3 rounded-full border border-slate-200/80 bg-slate-50 p-2">

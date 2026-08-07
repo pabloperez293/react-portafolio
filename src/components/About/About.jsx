@@ -1,8 +1,7 @@
+// Componente About: presenta la experiencia híbrida entre análisis funcional y desarrollo Java.
 import { motion } from 'framer-motion';
-import { ExternalLink, Mail, Phone, MapPin } from 'lucide-react';
-import aboutImg from '/src/assets/yo.png';
 import SectionHeader from '../ui/SectionHeader';
-import { ABOUT_TEXT, PROFILE } from '/src/constants';
+import { ABOUT_TEXT } from '/src/constants';
 
 const spring = { type: 'spring', stiffness: 400, damping: 25 };
 
@@ -20,10 +19,10 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={spring}
-            className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm"
+            className="overflow-hidden rounded-4xl border border-slate-200 bg-white p-6 shadow-sm"
           >
             <div className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-100">
-              <img src={aboutImg} alt="Pablo Perez" className="h-full w-full object-cover" />
+              <img src="/src/assets/chatpab.png" alt="Pablo Perez" className="h-full w-full object-cover" />
             </div>
           </motion.div>
 
@@ -33,57 +32,22 @@ const About = () => {
             transition={{ ...spring, delay: 0.1 }}
             className="space-y-8"
           >
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <div className="rounded-4xl border border-slate-200 bg-white p-8 shadow-sm">
               <p className="text-base leading-8 text-slate-600">{ABOUT_TEXT}</p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">Perfil</h3>
-                <p className="mt-4 text-slate-700 font-semibold">{PROFILE.role}</p>
+              <div className="rounded-4xl border border-slate-200 bg-slate-50 p-6">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">Propuesta de valor</h3>
+                <p className="mt-4 text-slate-700 leading-7">
+                  Conecto el mundo funcional y técnico para entregar soluciones claras, bien documentadas y alineadas con los objetivos del negocio.
+                </p>
               </div>
-              <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">Contacto</h3>
-                <div className="mt-4 space-y-3 text-sm text-slate-600">
-                  <div className="flex items-center gap-3">
-                    <Mail className="h-4 w-4 text-indigo-600" />
-                    <a href={`mailto:${PROFILE.email}`} className="hover:text-indigo-700 text-slate-700">
-                      {PROFILE.email}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="h-4 w-4 text-indigo-600" />
-                    <span>{PROFILE.phone}</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <MapPin className="h-4 w-4 text-indigo-600" />
-                    <span>{PROFILE.location}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">Perfiles</h3>
-              <div className="mt-4 grid gap-3">
-                <a
-                  href={PROFILE.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-sm transition-all duration-300 hover:border-indigo-200 hover:bg-slate-50 hover:text-indigo-700"
-                >
-                  <ExternalLink className="h-4 w-4 text-indigo-600" />
-                  linkedin.com/in/devpabloperez
-                </a>
-                <a
-                  href={PROFILE.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-sm transition-all duration-300 hover:border-indigo-200 hover:bg-slate-50 hover:text-indigo-700"
-                >
-                  <ExternalLink className="h-4 w-4 text-indigo-600" />
-                  github.com/pabloperezdev
-                </a>
+              <div className="rounded-4xl border border-slate-200 bg-slate-50 p-6">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-500">Habilidades principales</h3>
+                <p className="mt-4 text-slate-700 leading-7">
+                  Análisis de requisitos, documentación funcional, modelado de procesos, Java backend y diseño de APIs REST.
+                </p>
               </div>
             </div>
           </motion.div>

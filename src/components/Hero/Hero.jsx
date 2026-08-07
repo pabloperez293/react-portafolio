@@ -1,4 +1,5 @@
-﻿import React, { useState } from 'react';
+﻿// eslint-disable-next-line no-unused-vars
+import React, { useState } from 'react';
 import { Sparkles, FileText, ChevronRight } from 'lucide-react';
 
 export default function Hero() {
@@ -97,7 +98,7 @@ export default function Hero() {
         <div className="lg:col-span-5 flex justify-center items-center relative">
           <div className="relative w-full max-w-md aspect-square rounded-3xl bg-gradient-to-b from-slate-100 to-white p-2 border border-slate-200/60 shadow-xl overflow-hidden group">
             <img
-              src="/src/assets/chatPAblop.png"
+              src="/src/assets/chatpab.png"
               alt="Pablo Perez Dual Profile"
               className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
             />

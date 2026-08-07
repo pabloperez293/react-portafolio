@@ -30,7 +30,7 @@ export const HERO_PROFILES = {
     subtitle: "Construyo backend escalable en Java y Spring Boot.",
     description:
       "Analista Funcional y Desarrollador de Software con experiencia en construir backend escalable con Java y Spring Boot, integrando APIs REST eficientes y mantenibles para aplicaciones críticas.",
-    cv: "/assets/cv-java-developer.pdf",
+    cv: "/assets/cv-java.pdf",
   },
 };
 
@@ -64,6 +64,22 @@ export const EXPERIENCES = [
       "Relevamiento, análisis y documentación de incidencias, validación de desarrollos en ambientes de prueba y acompañamiento al equipo técnico durante el ciclo de entrega.",
     stack: ["Java", "Spring Boot", "Hibernate", "REST API", "Scrum"],
     tags: ["java"],
+  },
+  {
+    range: "May. 2021 – Sep. 2023",
+    role: "Soporte Técnico",
+    company: "Tiziana Distribuidora",
+    description:
+      "Diagnóstico, resolución de incidencias de software/hardware y soporte técnico integral a usuarios. Mantenimiento preventivo/correctivo de sistemas e infraestructura operativa. Documentación técnica de fallas frecuentes y coordinación de soluciones operativas.",
+    stack: [
+      "Soporte Técnico",
+      "Windows/Linux",
+      "Redes",
+      "Hardware",
+      "Mantenimiento IT",
+      "Muestreo de Incidencias",
+    ],
+    tags: ["funcional"],
   },
   {
     range: "Oct. 2020 – Oct. 2023",

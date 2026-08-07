@@ -8,6 +8,7 @@ import Experience from './components/Exper/Experience';
 import Education from './components/sections/Education';
 import Projects from './components/sections/Projects';
 import Contact from './components/sections/Contact';
+import Footer from './components/sections/Footer';
 
 export default function App() {
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function App() {
         </section>
         <Contact />
       </main>
+      <Footer />
     </div>
   );
 }

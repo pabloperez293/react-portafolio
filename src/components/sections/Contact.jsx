@@ -1,32 +1,28 @@
+// Componente Contact: ofrece canales directos de contacto y un formulario sencillo para enviar mensajes.
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, ExternalLink, MessageCircle } from 'lucide-react';
+import { Mail, Linkedin, Github, MessageCircle } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 
 const contactMethods = [
   {
     label: 'Email',
-    value: 'pablodevperez@gmail.com',
-    action: 'mailto:pablodevperez@gmail.com',
+    value: 'mailto:pablodevperez@gmail.com',
     icon: Mail,
-    copyText: 'Copiar email',
   },
   {
     label: 'LinkedIn',
-    value: 'linkedin.com/in/devpabloperez',
-    action: 'https://linkedin.com/in/devpabloperez',
-    icon: ExternalLink,
+    value: 'https://www.linkedin.com/in/devpabloperez',
+    icon: Linkedin,
   },
   {
     label: 'GitHub',
-    value: 'github.com/pabloperezdev',
-    action: 'https://github.com/pabloperezdev',
-    icon: ExternalLink,
+    value: 'https://github.com/pabloperez293',
+    icon: Github,
   },
   {
     label: 'WhatsApp',
-    value: '+54 9 11 7236-1058',
-    action: 'https://wa.me/5491172361058',
+    value: 'https://wa.me/5491172361058',
     icon: MessageCircle,
   },
 ];
@@ -63,48 +59,33 @@ const Contact = () => {
 
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] items-start mt-10">
           <div className="space-y-6">
-            <div className="rounded-[2rem] border border-red-100 bg-white p-8 shadow-sm">
+            <div className="rounded-4xl border border-red-100 bg-white p-8 shadow-sm">
               <h3 className="text-lg font-semibold text-slate-900">Contactos rápidos</h3>
               <p className="mt-3 text-slate-600">Elige el canal que prefieras para avanzar con tu proyecto o vacante.</p>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                 {contactMethods.map((method) => {
                   const Icon = method.icon;
                   return (
-                    <div key={method.label} className="rounded-3xl border border-red-100 bg-red-50/80 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-200">
-                      <div className="flex items-center gap-3">
-                        <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-red-600 text-white shadow-md shadow-red-500/20">
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <div>
-                          <p className="text-sm font-semibold text-slate-900">{method.label}</p>
-                          <a
-                            href={method.action}
-                            target={method.label !== 'Email' ? '_blank' : '_self'}
-                            rel="noreferrer"
-                            className="mt-1 block text-sm text-red-700 hover:text-red-800"
-                          >
-                            {method.value}
-                          </a>
-                        </div>
-                      </div>
-                      {method.label === 'Email' && (
-                        <button
-                          type="button"
-                          onClick={handleCopy}
-                          className="mt-5 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-red-600 to-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-red-500/25 transition-all duration-300 hover:from-red-700 hover:to-orange-600"
-                        >
-                          {copied ? 'Email copiado' : 'Copiar email'}
-                        </button>
-                      )}
-                    </div>
+                    <motion.a
+                      key={method.label}
+                      href={method.value}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.15, rotate: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                      className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-red-100 bg-red-50 text-red-700 shadow-sm transition-colors duration-300"
+                    >
+                      <Icon className="h-6 w-6" />
+                    </motion.a>
                   );
                 })}
               </div>
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-red-100 bg-white p-8 shadow-sm">
+          <div className="rounded-4xl border border-red-100 bg-white p-8 shadow-sm">
             <h3 className="text-lg font-semibold text-slate-900">Envíame un mensaje</h3>
             <p className="mt-3 text-slate-600">Completa el formulario y abriré el mail en tu cliente de correo.</p>
 
@@ -149,7 +130,7 @@ const Contact = () => {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.96 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                className="inline-flex items-center justify-center rounded-3xl bg-gradient-to-r from-red-600 to-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/25 transition-all duration-300 hover:from-red-700 hover:to-orange-600"
+                className="inline-flex items-center justify-center rounded-3xl bg-linear-to-r from-red-600 to-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/25 transition-all duration-300 hover:from-red-700 hover:to-orange-600"
               >
                 Enviar mensaje
               </motion.button>

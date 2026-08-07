@@ -1,4 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 const ProjectCard = ({ project }) => {
@@ -56,6 +58,17 @@ const ProjectCard = ({ project }) => {
       </div>
     </article>
   );
+};
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    technologies: PropTypes.arrayOf(PropTypes.string),
+    demo: PropTypes.string,
+    repo: PropTypes.string,
+  }).isRequired,
 };
 
 export default ProjectCard;

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, FileText } from "lucide-react";
 import Button from "../ui/Button";
-import heroImg from "/src/assets/chatpab.png";
+// eslint-disable-next-line no-unused-vars
+import heroImg from "./src/assets/chatpab.png";
 import { HERO_PROFILES } from "/src/constants";
 
 const spring = { type: "spring", stiffness: 400, damping: 25 };

@@ -1,29 +1,29 @@
 // Componente Contact: ofrece canales directos de contacto y un formulario sencillo para enviar mensajes.
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Github, MessageCircle } from 'lucide-react';
+import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import SectionHeader from '../ui/SectionHeader';
 
 const contactMethods = [
   {
     label: 'Email',
     value: 'mailto:pablodevperez@gmail.com',
-    icon: Mail,
+    icon: FaEnvelope,
   },
   {
     label: 'LinkedIn',
     value: 'https://www.linkedin.com/in/devpabloperez',
-    icon: Linkedin,
+    icon: FaLinkedin,
   },
   {
     label: 'GitHub',
     value: 'https://github.com/pabloperez293',
-    icon: Github,
+    icon: FaGithub,
   },
   {
     label: 'WhatsApp',
     value: 'https://wa.me/5491172361058',
-    icon: MessageCircle,
+    icon: FaWhatsapp,
   },
 ];
 

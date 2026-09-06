@@ -31,7 +31,7 @@ const Experience = () => {
       : EXPERIENCES.filter((experience) => experience.tags.includes(activeFilter));
 
   return (
-    <section id="experience" className="scroll-mt-20 bg-[#FDFDFD] py-20">
+    <section id="experiencia" className="scroll-mt-20 bg-[#FDFDFD] py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Experiencia"
@@ -65,7 +65,7 @@ const Experience = () => {
               whileHover={{ scale: 1.02 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...spring, delay: index * 0.05 }}
-              className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm hover:border-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/10"
+              className="rounded-[4xl] border border-slate-200 bg-white p-6 shadow-sm hover:border-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/10"
             >
               <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                 <div>

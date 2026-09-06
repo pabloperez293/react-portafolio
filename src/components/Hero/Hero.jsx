@@ -1,112 +1,307 @@
-﻿// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles, FileText, ChevronRight } from 'lucide-react';
-import chatpab from '/src/assets/chatpab.png';
+﻿import { useState } from 'react';
 
-export default function Hero() {
-  const [activeProfile, setActiveProfile] = useState('funcional'); // 'funcional' | 'java'
+import { motion } from 'framer-motion';
+import {
+  FiBriefcase,
+  FiCode,
+  FiDownload,
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+} from 'react-icons/fi';
+
+import chatpab from '../../assets/chatpab.png';
+
+const PROFILE_DATA = {
+  funcional: {
+    label: 'Analista Funcional',
+    description:
+      'Conecto necesidades de negocio con soluciones técnicas mediante análisis, documentación, testing y seguimiento de incidencias.',
+    technologies: [
+      'Jira',
+      'Confluence',
+      'SQL',
+      'Postman',
+      'Git',
+      'Documentación',
+    ],
+  },
+
+  java: {
+    label: 'Java Developer',
+    description:
+      'Desarrollo soluciones backend con Java y Spring Boot, trabajando con APIs REST, bases de datos SQL y herramientas de desarrollo.',
+    technologies: [
+      'Java',
+      'Spring Boot',
+      'REST API',
+      'JPA / Hibernate',
+      'SQL',
+      'Git',
+    ],
+  },
+};
+
+const Hero = () => {
+  const [activeProfile, setActiveProfile] = useState('funcional');
+
+  const profile = PROFILE_DATA[activeProfile];
+
+  const scrollToAbout = () => {
+    document.getElementById('sobre-mi')?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
 
   return (
-    <section className="relative flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 lg:py-20 bg-[#FDFDFD] overflow-hidden">
-      {/* Glows de fondo difuminados (Efecto de Luz) */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
-      
-      <div className="max-w-7xl w-full mx-auto flex items-center justify-center">
-        <div className="flex w-full max-w-3xl flex-col items-center justify-center text-center space-y-8">
-          <div className="w-full rounded-[2rem] border border-indigo-100/80 bg-white/70 p-8 shadow-xl shadow-indigo-500/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-indigo-300 sm:p-10">
-            <div className="group relative mx-auto flex h-40 w-40 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/10 via-transparent to-indigo-400/20 p-1 shadow-inner transition-all duration-500 ease-out hover:shadow-indigo-500/20">
-              <img
-                src={chatpab}
-                alt="Pablo Pérez"
-                className="h-full w-full rounded-full object-cover grayscale contrast-110 opacity-90 transition-all duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
-              />
-            </div>
-            
-            {/* Selector de Perfil estilo Cápsula Flotante */}
+    <section
+      id="home"
+      className="relative min-h-[calc(100vh-76px)] overflow-hidden bg-slate-950 text-white"
+    >
+      {/* Fondo visual */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Glow verde principal */}
+        <div className="absolute -left-32 top-0 h-96 w-96 rounded-full bg-emerald-500/[0.07] blur-[140px]" />
+
+        {/* Glow verde secundario */}
+        <div className="absolute right-[-120px] top-1/3 h-80 w-80 rounded-full bg-emerald-400/[0.04] blur-[120px]" />
+
+        {/* Detalle rojo muy sutil */}
+        <div className="absolute bottom-[-100px] left-1/2 h-72 w-72 rounded-full bg-red-500/[0.035] blur-[140px]" />
+
+        {/* Línea central */}
+        <div className="absolute left-1/2 top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-slate-800/40 to-transparent lg:block" />
+      </div>
+
+      <div className="relative mx-auto flex min-h-[calc(100vh-76px)] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid w-full items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+
+          {/* ================================================== */}
+          {/* INFORMACIÓN */}
+          {/* ================================================== */}
+
           <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
-            className="inline-flex p-1.5 bg-slate-100/80 backdrop-blur-md rounded-full border border-slate-200/80 shadow-xs"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.65, ease: 'easeOut' }}
+            className="max-w-3xl"
           >
-            <button
-              onClick={() => setActiveProfile('funcional')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                activeProfile === 'funcional'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25 scale-[1.02]'
-                  : 'text-slate-500 hover:text-slate-900'
-              }`}
+            {/* Identidad profesional */}
+            <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-400">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+
+              Analista Funcional / Técnico · Java Developer
+            </div>
+
+            {/* Nombre */}
+            <h1 className="text-5xl font-extrabold leading-[0.95] tracking-[-0.035em] text-slate-100 sm:text-6xl lg:text-7xl">
+              Pablo Perez
+              <span className="text-emerald-500">.</span>
+            </h1>
+
+            {/* Propuesta */}
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+              Conecto necesidades de negocio con soluciones técnicas mediante{' '}
+              <span className="font-semibold text-slate-100">
+                análisis, desarrollo, testing y soporte.
+              </span>
+            </p>
+
+            {/* Selector de perfil */}
+            <div className="mt-9 inline-flex rounded-2xl border border-slate-800 bg-slate-900/90 p-1.5 shadow-lg shadow-black/10">
+              <button
+                type="button"
+                aria-pressed={activeProfile === 'funcional'}
+                onClick={() => setActiveProfile('funcional')}
+                className={`inline-flex min-h-11 items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                  activeProfile === 'funcional'
+                    ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
+                    : 'text-slate-400 hover:bg-slate-800/70 hover:text-slate-100'
+                }`}
+              >
+                <FiBriefcase className="h-4 w-4" />
+                Analista Funcional
+              </button>
+
+              <button
+                type="button"
+                aria-pressed={activeProfile === 'java'}
+                onClick={() => setActiveProfile('java')}
+                className={`inline-flex min-h-11 items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                  activeProfile === 'java'
+                    ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
+                    : 'text-slate-400 hover:bg-slate-800/70 hover:text-slate-100'
+                }`}
+              >
+                <FiCode className="h-4 w-4" />
+                Java Developer
+              </button>
+            </div>
+
+            {/* Perfil dinámico */}
+            <motion.div
+              key={activeProfile}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+              className="mt-7"
             >
-              <span>🧩</span> Analista Funcional
-            </button>
+              <div className="flex items-center gap-3">
+                <span className="h-px w-8 bg-emerald-500" />
+
+                <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-400">
+                  {profile.label}
+                </h2>
+              </div>
+
+              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-400">
+                {profile.description}
+              </p>
+
+              {/* Tecnologías */}
+              <div className="mt-5 flex flex-wrap gap-2">
+                {profile.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-slate-800 bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-slate-300 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-400"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Separador */}
+            <div className="my-8 h-px max-w-2xl bg-gradient-to-r from-slate-800 via-slate-800 to-transparent" />
+
+            {/* CV */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="/cv-funcional.pdf"
+                download
+                className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                <FiDownload className="h-4 w-4" />
+                CV Analista
+              </a>
+
+              <a
+                href="/cv-java.pdf"
+                download
+                className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-5 py-3 text-sm font-semibold text-slate-200 transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-600 hover:bg-slate-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                <FiDownload className="h-4 w-4" />
+                CV Java Developer
+              </a>
+            </div>
+
+            {/* Redes */}
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href="https://github.com/pabloperez293"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub de Pablo Perez"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900 text-slate-400 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                <FiGithub className="h-5 w-5" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/devpabloperez"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn de Pablo Perez"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900 text-slate-400 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                <FiLinkedin className="h-5 w-5" />
+              </a>
+
+              <a
+                href="mailto:pablodevperez@gmail.com"
+                aria-label="Enviar email a Pablo Perez"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900 text-slate-400 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                <FiMail className="h-5 w-5" />
+              </a>
+            </div>
+
+            {/* Scroll */}
             <button
-              onClick={() => setActiveProfile('java')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                activeProfile === 'java'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25 scale-[1.02]'
-                  : 'text-slate-500 hover:text-slate-900'
-              }`}
+              type="button"
+              onClick={scrollToAbout}
+              className="mt-10 inline-flex min-h-11 items-center gap-3 text-sm font-medium text-slate-500 transition-colors duration-300 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
-              <span>💻</span> Java Developer
+              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-800">
+                ↓
+              </span>
+
+              Conocé mi perfil
             </button>
           </motion.div>
 
-          {/* Encabezado Principal */}
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
-              Pablo Perez
-            </h1>
-            <p className="text-xl sm:text-2xl font-medium text-indigo-600 flex items-center gap-2">
-              <Sparkles className="w-5 h-5"/>
-              {activeProfile === 'funcional' 
-                ? 'Analista Funcional' 
-                : 'Analista Programador Java'}
-            </p>
-            <p className="text-slate-600 text-base sm:text-lg max-w-xl leading-relaxed font-normal">
-              {activeProfile === 'funcional'
-                ? 'Transformo requerimientos de negocio en soluciones estructuradas, optimizando procesos y facilitando la comunicación entre stakeholders y el equipo técnico.'
-                : 'Diseño y desarrollo arquitecturas sólidas en Java y Spring Boot, integrando frontend moderno en React para construir software escalable.'}
-            </p>
-          </div>
+          {/* ================================================== */}
+          {/* FOTO */}
+          {/* ================================================== */}
 
-          {/* Botones de Acción (CTAs) */}
-          <div className="flex flex-wrap justify-center gap-4 w-full sm:w-auto pt-2">
-            <a
-              href={activeProfile === 'funcional' ? '/cv-funcional.pdf' : '/cv-java.pdf'}
-              download
-              className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3.5 rounded-2xl shadow-lg shadow-indigo-500/25 hover:-translate-y-0.5 hover:scale-105 transition-all duration-300 hover:shadow-indigo-500/40 hover:shadow-xl text-sm"
-            >
-              <FileText className="w-4 h-4"/>
-              Descargar CV ({activeProfile === 'funcional' ? 'Funcional' : 'Java'})
-            </a>
-            <a
-              href="#projects"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-medium px-6 py-3.5 rounded-2xl border border-slate-200 shadow-xs hover:border-indigo-200 hover:text-indigo-700 hover:-translate-y-0.5 hover:scale-105 transition-all duration-300 hover:shadow-indigo-500/40 hover:shadow-xl text-sm"
-            >
-              Ver Portfolio <ChevronRight className="w-4 h-4 text-slate-400"/>
-            </a>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.65, delay: 0.1, ease: 'easeOut' }}
+            className="flex justify-center lg:justify-end"
+          >
+            <div className="relative w-full max-w-md">
 
-          {/* Grid de Tecnologías (Micro-tarjetas) */}
-          <div className="pt-4 border-t border-slate-200/60 w-full">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-3">
-              Tecnologías Clave
-            </span>
-            <div className="flex flex-wrap justify-center gap-2">
-              {['Java', 'Spring Boot', 'React', 'JavaScript', 'PostgreSQL', 'Git', 'Docker', 'REST API'].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1.5 bg-slate-50 border border-slate-200 text-slate-700 rounded-xl text-xs font-medium hover:border-indigo-400 hover:text-indigo-600 hover:-translate-y-0.5 transition-all duration-300 hover:scale-[1.02]"
-                >
-                  {tech}
-                </span>
-              ))}
+              {/* Halo */}
+              <div className="absolute -inset-8 rounded-[3rem] bg-emerald-500/[0.035] blur-3xl" />
+
+              {/* Marcos */}
+              <div className="absolute -inset-3 rounded-[2.2rem] border border-emerald-500/10" />
+
+              <div className="absolute -inset-6 rounded-[2.7rem] border border-slate-800/40" />
+
+              {/* Card */}
+              <div className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50">
+
+                {/* Foto */}
+                <div className="aspect-[4/5] overflow-hidden bg-slate-950">
+                  <img
+                    src={chatpab}
+                    alt="Pablo Perez"
+                    loading="eager"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+
+                {/* Información */}
+                <div className="border-t border-slate-800 px-5 py-5">
+                  <div className="flex items-center justify-between gap-4">
+
+                    <div>
+                      <p className="text-sm font-bold text-slate-100">
+                        Pablo Perez
+                      </p>
+
+                      <p className="mt-1 text-xs text-slate-500">
+                        Analista Funcional / Técnico · Java Developer
+                      </p>
+                    </div>
+
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-400">
+                      <FiCode className="h-5 w-5" />
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
             </div>
-          </div>
-          </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Hero;

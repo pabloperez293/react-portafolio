@@ -1,5 +1,5 @@
 // Componente Footer: pie de página con copyright y acceso rápido al inicio.
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 
@@ -10,7 +10,6 @@ const Footer = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
       const viewportHeight = window.innerHeight;
-      const pageHeight = document.documentElement.scrollHeight;
       const contactSection = document.getElementById('contact');
       const contactVisible = contactSection
         ? contactSection.getBoundingClientRect().top < viewportHeight && contactSection.getBoundingClientRect().bottom >= 0

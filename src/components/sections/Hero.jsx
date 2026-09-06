@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, FileText } from "lucide-react";
 import Button from "../ui/Button";
-// eslint-disable-next-line no-unused-vars
-import heroImg from "/src/assets/chatpab.png";
 import { HERO_PROFILES } from "/src/constants";
 
 const spring = { type: "spring", stiffness: 400, damping: 25 };
@@ -37,9 +35,8 @@ export default function Hero() {
       <div className="pointer-events-none absolute right-16 bottom-20 h-px w-28 bg-orange-100 opacity-50" />
       <div className="pointer-events-none absolute right-24 bottom-32 h-2 w-2 rounded-full bg-indigo-100 opacity-70" />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-          <div className="lg:col-span-7 flex flex-col gap-8">
+      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
+        <div className="flex w-full max-w-4xl flex-col items-center gap-8 text-center lg:items-start lg:text-left">
             <div className="inline-flex items-center gap-3 rounded-full border border-indigo-100 bg-indigo-50/80 px-4 py-2 text-sm text-slate-700 shadow-sm">
               <Sparkles className="h-5 w-5 text-indigo-600" />
               <span className="font-semibold">
@@ -134,15 +131,6 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex items-center justify-center">
-            <div className="overflow-hidden rounded-4xl border border-slate-200 bg-white p-6 shadow-sm w-full max-w-[420px]">
-              <div className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-100">
-                <img src={heroImg} alt="Pablo Perez" className="h-full w-full object-cover" />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </motion.section>
-  );
-}
+    </motion.section>);
+};

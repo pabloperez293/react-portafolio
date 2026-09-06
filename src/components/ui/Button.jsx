@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = ({ children, variant = 'primary', size = 'md', href, onClick, className = '' }) => {
   const base = 'inline-flex items-center justify-center rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white';
@@ -24,6 +24,15 @@ const Button = ({ children, variant = 'primary', size = 'md', href, onClick, cla
       {children}
     </button>
   );
+};
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'ghost', 'outline']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  href: PropTypes.string,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
 };
 
 export default Button;

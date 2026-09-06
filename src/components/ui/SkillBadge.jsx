@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const SkillBadge = ({ icon: Icon, label, name }) => {
   const text = label || name;
@@ -8,6 +8,12 @@ const SkillBadge = ({ icon: Icon, label, name }) => {
       <span className="text-sm">{text}</span>
     </span>
   );
+};
+
+SkillBadge.propTypes = {
+  icon: PropTypes.elementType,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
 };
 
 export default SkillBadge;

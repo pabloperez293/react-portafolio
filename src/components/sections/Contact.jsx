@@ -1,5 +1,5 @@
 // Componente Contact: ofrece canales directos de contacto y un formulario sencillo para enviar mensajes.
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import SectionHeader from '../ui/SectionHeader';
@@ -29,7 +29,6 @@ const contactMethods = [
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [copied, setCopied] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -41,12 +40,6 @@ const Contact = () => {
     window.location.href = `mailto:pablodevperez@gmail.com?subject=${encodeURIComponent(
       `Contacto desde portfolio de ${form.name}`
     )}&body=${encodeURIComponent(form.message + '\n\n' + form.email)}`;
-  };
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText('pablodevperez@gmail.com');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1800);
   };
 
   return (

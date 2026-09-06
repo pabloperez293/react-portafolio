@@ -1,5 +1,4 @@
 // Componente Projects: muestra las piezas más relevantes realizadas en backend, fullstack y análisis funcional.
-import React from 'react';
 import ProjectCard from '../cards/ProjectCard';
 import SectionHeader from '../ui/SectionHeader';
 

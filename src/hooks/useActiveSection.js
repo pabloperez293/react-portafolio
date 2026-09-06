@@ -21,13 +21,17 @@ export default function useActiveSection(sectionIds = []) {
           }
         });
       },
-      { root: null, rootMargin: '0px 0px -60% 0px', threshold: 0 }
+      {
+        root: null,
+        rootMargin: '0px 0px -60% 0px',
+        threshold: 0,
+      }
     );
 
     els.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, [sectionIds.join('|')]);
+  }, [sectionIds]);
 
   return active;
 }

@@ -1,5 +1,5 @@
 // Componente Experience: presenta la trayectoria profesional y su foco en análisis funcional y Java.
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { EXPERIENCES } from '/src/constants';
 import SectionHeader from '../ui/SectionHeader';

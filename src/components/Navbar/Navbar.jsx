@@ -2,7 +2,6 @@
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import { FiDownload } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import imgLogo from './yo.png';
 
 import useActiveSection from '../../hooks/useActiveSection';
 
@@ -68,7 +67,7 @@ const Navbar = () => {
         >
           <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-emerald-500/40 bg-slate-900 transition-colors duration-300 group-hover:border-emerald-500/70 sm:h-10 sm:w-10">
             <img
-              src={imgLogo}
+              src="/yo.png"
               alt="Logo de Pablo Perez"
               className="h-full w-full rounded-full object-cover"
             />

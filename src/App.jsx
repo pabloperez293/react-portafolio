@@ -8,7 +8,6 @@ import About from './components/About/About';
 import Experience from './components/Exper/Experience';
 import Education from './components/sections/Education';
 import Projects from './components/sections/Projects';
-import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
 
 export default function App() {
@@ -34,7 +33,6 @@ export default function App() {
       <Projects />
     </section>
 
-    <Contact />
   </main>
 
   <Footer />

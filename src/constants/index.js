@@ -1,4 +1,9 @@
-﻿
+﻿import tizianaImg from '../assets/tiziana.png';
+import todo from '../assets/todo.png';
+import elam from '../assets/elam.png';
+import galeria from '../assets/galeria.png';
+
+
 export const PROFILE = {
   name: "Pablo Perez",
   role: "Analista Funcional | IT Business Analyst Jr. & Java Developer",
@@ -56,11 +61,9 @@ export const EXPERIENCES = [
     company: "Eldar",
     description: [
       "Desarrollé y mantuve aplicaciones backend empresarial utilizando Java y Spring Boot. Diseñé e implementé APIs REST para la integración de sistemas y microservicios.",
-      "Implementé operaciones CRUD y esquemas de persistencia con Spring Data JPA y Hibernate",
-      "sobre MySQL",
-      "Participé en la resolución de incidencias técnicas y refactorización de código siguiendo",
-      "principios SOLID.",
-      "Ejecuté pruebas funcionales y validaciones antes del despliegue en entornos de homologación",
+      "Implementé operaciones CRUD y esquemas de persistencia con Spring Data JPA y Hibernate sobre MySQL.",
+      "Participé en la resolución de incidencias técnicas y refactorización de código siguiendo principios SOLID.",
+      "Ejecuté pruebas funcionales y validaciones antes del despliegue en entornos de homologación.",
     ],
     stack: ["Jira", "Confluence", "SQL", "Testing Funcional", "Agile"],
     tags: ["funcional"],
@@ -84,9 +87,9 @@ export const EXPERIENCES = [
     role: "Soporte Técnico",
     company: "Tiziana Distribuidora",
     description: [
-      "Diagnóstico, resolución de incidencias de software/hardware ",
-      " Soporte técnico integral a usuarios. ", 
-      "Mantenimiento preventivo/correctivo de sistemas e infraestructura operativa. ",
+      "Diagnóstico, resolución de incidencias de software/hardware.",
+      "Soporte técnico integral a usuarios.",
+      "Mantenimiento preventivo/correctivo de sistemas e infraestructura operativa.",
       "Documentación técnica de fallas frecuentes y coordinación de soluciones operativas.",
     ],
     stack: [
@@ -125,7 +128,7 @@ export const EXPERIENCES = [
     role: "Tutor de Desarrollo Web",
     company: "Coderhouse",
     description: [
-      "Brindé soporte técnico y mentoría a estudiantes en desarrollo web frontend (HTML, CSS,JavaScript) orientando en la resolución de bugs y la aplicación de buenas prácticas de código.",
+      "Brindé soporte técnico y mentoría a estudiantes en desarrollo web frontend (HTML, CSS, JavaScript) orientando en la resolución de bugs y la aplicación de buenas prácticas de código.",
       "Realicé revisiones de código (Code Reviews), fomentando buenas prácticas de programación y responsive design.",
     ],
     stack: ["HTML", "CSS", "JavaScript", "Responsive Design", "Git"],
@@ -165,7 +168,8 @@ export const CERTIFICATIONS = [
     title: "Coder House 2025",
     detail: "Web / React.js",
     date: "2025",
-    file: "/src/assets/DesarrolloWeb.jpeg",  },
+    file: "/src/assets/DesarrolloWeb.jpeg",
+  },
   {
     title: "Red Hat System Administration I",
     detail: "Linux & DevOps básico",
@@ -177,7 +181,7 @@ export const CERTIFICATIONS = [
     detail: "Comunicación técnica en entornos IT",
     date: "2024",
   },
-    {
+  {
     title: "Front-End Developer",
     detail: "Diseñador de paginas web y aplicaciones web",
     date: "2024",
@@ -193,6 +197,7 @@ export const PROJECTS = [
     technologies: ['React.js', 'JavaScript', 'Tailwind CSS', 'REST API', 'Git'],
     repo: 'https://github.com/pabloperez293/Tiziana-Online',
     demo: 'https://tizionline2026.netlify.app/',
+    image: tizianaImg,
   },
   {
     title: 'Elam Barber Studio',
@@ -200,20 +205,23 @@ export const PROJECTS = [
       'Landing page web moderna e interactiva para reserva de turnos y presentación de servicios de barbería con diseño Dark UI optimizado.',
     technologies: ['React.js', 'Tailwind CSS', 'UI/UX Design', 'Responsive'],
     demo: 'https://elambarberstudio.netlify.app/',
+    image: elam,
   },
   {
-    title: 'To-Do y Notas ',
+    title: 'To-Do & Notes Application',
     description:
       'Aplicación web interactiva para la gestión eficiente de tareas y notas con almacenamiento persistente en el navegador y filtrado dinámico.',
     technologies: ['JavaScript', 'HTML5', 'CSS3', 'LocalStorage'],
     demo: 'https://todolistnotes001.netlify.app/',
+    image: todo,
   },
   {
-    title: 'Script Hiringroom y Automatización',
+    title: 'Script Hiringroom y automatización de procesos',
     description:
       'Script y herramientas de automatización orientados al procesamiento de datos y optimización de flujos de reclutamiento.',
     technologies: ['JavaScript', 'Automation', 'API Integration'],
     repo: 'https://github.com/pabloperez293/Script-hirigroom',
+    image: null,
   },
   {
     title: 'EndPoints Memory API',
@@ -221,6 +229,7 @@ export const PROJECTS = [
       'Estructura de backend e integración de servicios REST con gestión en memoria para testeo y validación rápida de contratos de API.',
     technologies: ['Node.js', 'Express', 'REST API', 'JSON'],
     repo: 'https://github.com/pabloperez293/endPointsMem',
+    image: null,
   },
   {
     title: 'Galería Interactiva ',
@@ -228,5 +237,6 @@ export const PROJECTS = [
       'Prototipos frontend para la manipulación dinámica del DOM, filtrado de elementos y maquetación fluida en aplicaciones web.',
     technologies: ['JavaScript', 'HTML5', 'CSS Grid', 'Flexbox'],
     demo: 'https://galeriaext.netlify.app/',
+    image: galeria,
   },
 ];

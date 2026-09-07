@@ -1,19 +1,14 @@
 import { useEffect, useState } from "react";
-
 import { motion } from "framer-motion";
 import {
   FiBriefcase,
   FiCode,
-  FiDownload,
   FiGithub,
   FiLinkedin,
   FiMail,
 } from "react-icons/fi";
 
-import Button from "../ui/Button";
-
 import { HERO_PROFILES } from "../../constants";
-
 import perfil from "../../assets/yo.png";
 
 const PROFILE_OPTIONS = [
@@ -72,49 +67,44 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[calc(100vh-76px)] overflow-hidden bg-slate-950 text-white"
+      className="relative min-h-[calc(100vh-76px)] overflow-hidden bg-slate-950 pt-20 text-white lg:pt-0"
     >
       {/* Fondo decorativo */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-emerald-500/[0.07] blur-[140px]" />
-
-        <div className="absolute right-[-120px] top-1/3 h-80 w-80 rounded-full bg-emerald-400/[0.04] blur-[120px]" />
-
-        <div className="absolute bottom-[-120px] left-1/3 h-72 w-72 rounded-full bg-red-500/[0.03] blur-[130px]" />
+        <div className="absolute -left-40 top-0 h-72 w-72 rounded-full bg-emerald-500/[0.07] blur-[120px] sm:h-96 sm:w-96 sm:blur-[140px]" />
+        <div className="absolute -right-30 top-1/3 h-64 w-64 rounded-full bg-emerald-400/4 blur-[100px] sm:h-80 sm:w-80 sm:blur-[120px]" />
+        <div className="absolute -bottom-30 left-1/3 h-60 w-60 rounded-full bg-red-500/3 blur-[110px] sm:h-72 sm:w-72 sm:blur-[130px]" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-76px)] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid w-full items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="relative mx-auto flex min-h-[calc(100vh-76px)] max-w-7xl items-center px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div className="grid w-full items-center gap-10 lg:gap-16 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Columna izquierda */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="max-w-3xl"
+            className="w-full max-w-3xl"
           >
-            {/* Identidad profesional */}
-
             {/* Nombre */}
-            <h1 className="text-5xl font-extrabold leading-[0.95] tracking-[-0.04em] text-slate-100 sm:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-slate-100 sm:text-6xl lg:text-7xl">
               Pablo Perez
               <span className="text-emerald-500">.</span>
             </h1>
 
             {/* Texto con efecto de escritura */}
             <p
-              className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl"
+              className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:mt-7 sm:text-xl sm:leading-8"
               aria-label={TYPING_TEXT}
             >
               {displayText}
-
               <span
-                className="ml-1 inline-block h-6 w-px translate-y-1 animate-pulse bg-emerald-400 sm:h-7"
+                className="ml-1 inline-block h-5 w-px translate-y-0.5 animate-pulse bg-emerald-400 sm:h-6 sm:translate-y-1"
                 aria-hidden="true"
               />
             </p>
 
             {/* Selector de perfil */}
-            <div className="mt-9 inline-flex rounded-2xl border border-slate-800 bg-slate-900/90 p-1.5 shadow-xl shadow-black/10">
+            <div className="mt-7 flex flex-col gap-2 rounded-2xl border border-slate-800 bg-slate-900/90 p-1.5 shadow-xl shadow-black/10 sm:inline-flex sm:flex-row">
               {PROFILE_OPTIONS.map((option) => {
                 const Icon = option.icon;
                 const isActive = activeProfile === option.key;
@@ -125,7 +115,7 @@ const Hero = () => {
                     type="button"
                     aria-pressed={isActive}
                     onClick={() => setActiveProfile(option.key)}
-                    className={`inline-flex min-h-11 items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                    className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
                       isActive
                         ? "bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
                         : "text-slate-400 hover:bg-slate-800 hover:text-slate-100"
@@ -144,35 +134,40 @@ const Hero = () => {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
-              className="mt-7"
+              className="mt-6 sm:mt-7"
             >
               <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-emerald-500" />
-
-                <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-400">
+                <span className="h-px w-6 bg-emerald-500 sm:w-8" />
+                <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400 sm:text-sm">
                   {currentProfile.title || currentProfile.label}
                 </h2>
               </div>
 
-              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-400">
+              <p className="mt-2.5 max-w-2xl text-sm leading-6 text-slate-400 sm:mt-3 sm:text-base sm:leading-7">
                 {currentProfile.description}
               </p>
             </motion.div>
 
             {/* Tecnologías */}
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-1.5 sm:gap-2">
               {[
                 "Java",
                 "Spring Boot",
-                "SQL",
+                "MySQL",
                 "React",
+                "html",
+                "css",
+                "kanban",
+                "javascript",
+                "confluence",
+                "REST API",
                 "Git",
                 "Jira",
                 "Postman",
               ].map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-slate-800 bg-slate-900 px-3.5 py-1.5 text-xs font-medium text-slate-300 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-400"
+                  className="rounded-full border border-slate-800 bg-slate-900 px-3 py-1 text-xs font-medium text-slate-300 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-400 sm:px-3.5 sm:py-1.5"
                 >
                   {tech}
                 </span>
@@ -180,7 +175,7 @@ const Hero = () => {
             </div>
 
             {/* Separador */}
-            <div className="my-8 h-px max-w-2xl bg-gradient-to-r from-slate-800 via-slate-800 to-transparent" />
+            <div className="my-6 h-px max-w-2xl bg-gradient-to-r from-slate-800 via-slate-800 to-transparent sm:my-8" />
 
             {/* Redes */}
             <div className="mt-6 flex items-center gap-3">
@@ -217,7 +212,7 @@ const Hero = () => {
             <button
               type="button"
               onClick={scrollToAbout}
-              className="mt-9 inline-flex min-h-11 items-center gap-3 text-sm font-medium text-slate-500 transition-colors duration-300 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="mt-8 inline-flex min-h-11 items-center gap-3 text-sm font-medium text-slate-500 transition-colors duration-300 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 sm:mt-9"
             >
               <span className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-800">
                 ↓
@@ -237,19 +232,18 @@ const Hero = () => {
             }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-xs sm:max-w-md">
               {/* Glow */}
-              <div className="absolute -inset-8 rounded-[3rem] bg-emerald-500/[0.035] blur-3xl" />
+              <div className="absolute -inset-4 rounded-[2.5rem] bg-emerald-500/[0.035] blur-2xl sm:-inset-8 sm:rounded-[3rem] sm:blur-3xl" />
 
               {/* Marcos */}
-              <div className="absolute -inset-3 rounded-[2.2rem] border border-emerald-500/10" />
-
-              <div className="absolute -inset-6 rounded-[2.7rem] border border-slate-800/40" />
+              <div className="absolute -inset-2 rounded-[2rem] border border-emerald-500/10 sm:-inset-3 sm:rounded-[2.2rem]" />
+              <div className="absolute -inset-4 rounded-[2.3rem] border border-slate-800/40 sm:-inset-6 sm:rounded-[2.7rem]" />
 
               {/* Tarjeta */}
-              <div className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50">
+              <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50 sm:rounded-4xl">
                 {/* Foto */}
-                <div className="aspect-[4/5] overflow-hidden bg-slate-950">
+                <div className="aspect-4/5 overflow-hidden bg-slate-950">
                   <img
                     src={perfil}
                     alt="Pablo Perez"
@@ -259,14 +253,8 @@ const Hero = () => {
                 </div>
 
                 {/* Información */}
-                <div className="border-t border-slate-800 px-5 py-5">
+                <div className="border-t border-slate-800 px-4 py-4 sm:px-5 sm:py-5">
                   <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-sm font-bold text-slate-100">
-                        Pablo Perez
-                      </p>
-                    </div>
-
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-400">
                       <FiCode className="h-5 w-5" />
                     </div>

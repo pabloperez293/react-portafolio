@@ -28,28 +28,72 @@ const Experience = () => {
   const visibleExperiences =
     activeFilter === 'all'
       ? EXPERIENCES
-      : EXPERIENCES.filter((experience) => experience.tags.includes(activeFilter));
+      : EXPERIENCES.filter((experience) => experience.tags?.includes(activeFilter));
+
+  const renderDescription = (description) => {
+    // Si la descripción es un Array de ítems
+    if (Array.isArray(description)) {
+      return (
+        <ul className="mt-4 space-y-2.5">
+          {description.map((item, idx) => (
+            <li key={idx} className="flex items-start gap-3 text-sm leading-6 text-slate-300 sm:text-base sm:leading-7">
+              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+              <span>{item.replace(/^\*\s*/, '')}</span>
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    // Si la descripción es un String con saltos de línea (\n) o viñetas (*)
+    if (typeof description === 'string' && (description.includes('\n') || description.trim().startsWith('*'))) {
+      const items = description
+        .split('\n')
+        .map((item) => item.trim())
+        .filter(Boolean);
+
+      return (
+        <ul className="mt-4 space-y-2.5">
+          {items.map((item, idx) => (
+            <li key={idx} className="flex items-start gap-3 text-sm leading-6 text-slate-300 sm:text-base sm:leading-7">
+              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+              <span>{item.replace(/^\*\s*/, '')}</span>
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    // Si es un String común de un solo párrafo
+    return (
+      <p className="mt-4 text-sm leading-6 text-slate-300 sm:text-base sm:leading-7">
+        {description}
+      </p>
+    );
+  };
 
   return (
-    <section id="experiencia" className="scroll-mt-20 bg-[#FDFDFD] py-20">
+    <section id="experiencia" className="scroll-mt-20 bg-slate-950 py-12 text-white sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="Experiencia"
-          subtitle="Trayectoria profesional orientada a análisis funcional, soporte técnico y desarrollo Java."
+          title="Experiencia de mi perfil"
+          subtitle="Mi experiencia profesional orientada a análisis funcional, soporte técnico y desarrollo en varios sistemas."
         />
 
-        <div className="flex flex-wrap items-center gap-3 rounded-full border border-slate-200 bg-slate-50 p-2 shadow-sm">
+        {/* Filtros adaptables */}
+        <div className="inline-flex w-full flex-wrap items-center gap-1.5 rounded-2xl border border-slate-800 bg-slate-900/90 p-1.5 shadow-xl shadow-black/10 sm:w-auto sm:gap-2 sm:rounded-full">
           {filterOptions.map((option) => (
             <motion.button
               key={option.key}
               type="button"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               transition={spring}
               onClick={() => setActiveFilter(option.key)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ${
+              className={`flex-1 min-h-11 rounded-xl px-4 py-2 text-xs font-semibold transition-all duration-300 sm:flex-initial sm:rounded-full sm:text-sm ${
                 activeFilter === option.key
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25'
-                  : 'text-slate-700 hover:bg-indigo-50 hover:text-indigo-700'
+                  ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
+                  : 'text-slate-400 hover:bg-slate-800 hover:text-slate-100'
               }`}
             >
               {option.label}
@@ -57,33 +101,40 @@ const Experience = () => {
           ))}
         </div>
 
-        <div className="mt-10 space-y-6">
+        {/* Tarjetas de experiencia */}
+        <div className="mt-8 space-y-5 sm:mt-10 sm:space-y-6">
           {visibleExperiences.map((experience, index) => (
             <motion.article
               key={experience.company + index}
               initial={{ opacity: 0, y: 20 }}
-              whileHover={{ scale: 1.02 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ ...spring, delay: index * 0.05 }}
-              className="rounded-[4xl] border border-slate-200 bg-white p-6 shadow-sm hover:border-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/10"
+              className="rounded-3xl border border-slate-800 bg-slate-900 p-5 shadow-xl shadow-black/20 transition-all duration-300 hover:border-emerald-500/30 sm:rounded-4xl sm:p-7"
             >
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div className="flex flex-col gap-1 lg:flex-row lg:items-center lg:justify-between">
                 <div>
-                  <p className="text-sm uppercase tracking-[0.28em] text-slate-500">{experience.range}</p>
-                  <h3 className="mt-3 text-2xl font-semibold text-slate-950">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 sm:text-sm">
+                    {experience.range}
+                  </p>
+                  <h3 className="mt-2 text-xl font-extrabold text-slate-100 sm:text-2xl">
                     {experience.role}
                   </h3>
-                  <p className="mt-1 text-sm font-medium text-indigo-600">{experience.company}</p>
+                  <p className="mt-1 text-sm font-semibold text-slate-400">
+                    {experience.company}
+                  </p>
                 </div>
               </div>
 
-              <p className="mt-4 text-slate-600 leading-7">{experience.description}</p>
+              {/* Renderizado dinámico de la descripción */}
+              {renderDescription(experience.description)}
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {experience.stack.map((tech, techIndex) => (
+              {/* Tags de Tecnologías */}
+              <div className="mt-5 flex flex-wrap gap-1.5 sm:gap-2">
+                {experience.stack?.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700"
+                    className="rounded-full border border-slate-800 bg-slate-950 px-3 py-1 text-xs font-medium text-slate-300 transition-colors duration-300 hover:border-emerald-500/30 hover:text-emerald-400 sm:px-3.5 sm:py-1.5"
                   >
                     {tech}
                   </span>

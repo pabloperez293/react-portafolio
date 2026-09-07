@@ -42,7 +42,7 @@ const Contact = () => {
     <section id="contact" className="py-20">
       <h2 data-aos="fade-up" className="text-center text-4xl mb-8">Contacto</h2>
 
-      <div className="max-w-3xl mx-auto bg-gradient-to-br from-neutral-900/60 to-neutral-800/60 p-8 rounded-2xl shadow-lg border border-neutral-800" data-aos="fade-up" data-aos-delay="100">
+      <div className="max-w-3xl mx-auto bg-linear-to-br from-neutral-900/60 to-neutral-800/60 p-8 rounded-2xl shadow-lg border border-neutral-800" data-aos="fade-up" data-aos-delay="100">
           <div className="flex items-center gap-4 mb-6">
             <Mail className="text-brand-300" />
             <p className="text-sm text-neutral-400">¿Tienes un proyecto? Escríbeme.</p>
@@ -57,7 +57,7 @@ const Contact = () => {
             <button disabled={sending} type="submit" className={`px-6 py-2 rounded-md font-semibold transition-all ${sending ? 'bg-brand-200/40 text-neutral-700' : 'bg-brand-500 text-neutral-900 hover:scale-105'}`}>
               {sending ? 'Enviando...' : 'Enviar'}
             </button>
-            <div className="min-w-[220px]">
+            <div className="min-w-55">
               {status && (
                 <div className="flex items-center gap-2 text-sm">
                   {status.includes('Gracias') || status.includes('Abriendo') ? <CheckCircle className="text-emerald-400" /> : <XCircle className="text-rose-400" />}

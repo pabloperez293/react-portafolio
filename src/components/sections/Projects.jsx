@@ -1,43 +1,31 @@
-// Componente Projects: muestra las piezas más relevantes realizadas en backend, fullstack y análisis funcional.
+// Componente Projects: renderiza la lista de proyectos desde constants
+import { motion } from 'framer-motion';
 import ProjectCard from '../cards/ProjectCard';
 import SectionHeader from '../ui/SectionHeader';
+import { PROJECTS } from '/src/constants';
 
-const projects = [
-  {
-    title: 'API REST Banking / E-Commerce Backend',
-    description:
-      'Backend robusto para banca y e-commerce construido con Java 17, Spring Boot, Spring Data JPA, PostgreSQL y Docker. Incluye endpoints REST seguros y pruebas con Postman.',
-    technologies: ['Java 17', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'Docker', 'REST API', 'Postman'],
-    repo: 'https://github.com/pabloperezdev/banking-ecommerce-backend',
-  },
-  {
-    title: 'Portal de Gestión Fullstack',
-    description:
-      'Aplicación fullstack con frontend en React y Tailwind CSS, backend en Java + Spring Boot y persistencia MySQL. Diseñada para gestión de usuarios, inventario y workflows administrativos.',
-    technologies: ['React.js', 'Tailwind CSS', 'Java', 'Spring Boot', 'REST API', 'MySQL'],
-    repo: 'https://github.com/pabloperezdev/portal-gestion-fullstack',
-  },
-  {
-    title: 'Documentación & Especificación Funcional',
-    description:
-      'Entrega de documentación técnica completa con Jira, Confluence, historias de usuario, casos de uso y UML. Incluye plan de testing funcional y criterios de aceptación.',
-    technologies: ['Jira', 'Confluence', 'Historias de Usuario', 'Casos de Uso', 'UML', 'Testing Funcional'],
-    repo: 'https://github.com/pabloperezdev/documentacion-funcional',
-  },
-];
+const spring = { type: 'spring', stiffness: 400, damping: 25 };
 
 const Projects = () => {
   return (
-    <section id="projects" className="bg-[#FDFDFD] py-20">
+    <section id="projects" className="scroll-mt-20 bg-slate-950 py-12 text-white sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="Proyectos"
-          subtitle="Proyectos alineados con mi perfil técnico y experiencia funcional."
+          title="Proyectos Destacados"
+          subtitle="Proyectos alineados con mi perfil técnico, desarrollo backend y experiencia en análisis funcional."
         />
 
-        <div className="grid grid-cols-1 gap-6 mt-10 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {PROJECTS?.map((project, index) => (
+            <motion.div
+              key={project.title + index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ ...spring, delay: index * 0.08 }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
           ))}
         </div>
       </div>

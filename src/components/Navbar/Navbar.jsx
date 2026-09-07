@@ -1,5 +1,5 @@
 ﻿import { useEffect, useState } from 'react';
-import { FaBars, FaXmark  } from 'react-icons/fa6';
+import { FaBars, FaXmark } from 'react-icons/fa6';
 import { FiDownload } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
@@ -58,23 +58,23 @@ const Navbar = () => {
           : 'border-slate-900 bg-slate-950/90 backdrop-blur-md'
       }`}
     >
-      <div className="flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
         {/* Logo */}
         <button
           type="button"
           onClick={() => scrollToSection('home')}
           aria-label="Ir al inicio"
-          className="group inline-flex min-h-11 items-center gap-2 rounded-xl px-2 text-left text-base font-bold tracking-tight text-slate-100 transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          className="group inline-flex min-h-11 items-center gap-2.5 rounded-xl px-1 text-left text-base font-bold tracking-tight text-slate-100 transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
-<span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-emerald-500/40 bg-slate-900 transition-colors duration-300 group-hover:border-emerald-500/70">
-  <img
-    src="/src/assets/yo.png"
-    alt="Logo de Pablo Perez"
-    className="h-full w-full rounded-full object-cover border-emerald-00"
-  />
-</span>
+          <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-emerald-500/40 bg-slate-900 transition-colors duration-300 group-hover:border-emerald-500/70 sm:h-10 sm:w-10">
+            <img
+              src="/src/assets/yo.png"
+              alt="Logo de Pablo Perez"
+              className="h-full w-full rounded-full object-cover"
+            />
+          </span>
 
-          <span>
+          <span className="text-sm sm:text-base">
             Pablo Perez<span className="text-emerald-500">.</span>
           </span>
         </button>
@@ -90,7 +90,7 @@ const Navbar = () => {
               type="button"
               onClick={() => scrollToSection(link.id)}
               aria-current={activeSection === link.id ? 'page' : undefined}
-              className={`min-h-11 rounded-xl px-4 text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+              className={`min-h-11 rounded-xl px-3.5 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 lg:px-4 ${
                 activeSection === link.id
                   ? 'bg-slate-900 text-emerald-400'
                   : 'text-slate-400 hover:bg-slate-900/70 hover:text-slate-100'
@@ -103,7 +103,7 @@ const Navbar = () => {
 
         {/* CTA desktop */}
         <a
-          href="/cv-java.pdf"
+          href="/assets/CV PabloPerez.pdf"
           download
           className="hidden min-h-11 items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 text-sm font-semibold text-emerald-400 transition-all duration-300 hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-emerald-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 md:inline-flex"
         >
@@ -135,10 +135,10 @@ const Navbar = () => {
 
       {/* Menú mobile */}
       {open && (
-        <div className="border-t border-slate-800 bg-slate-950 md:hidden">
+        <div className="border-t border-slate-800 bg-slate-950/98 backdrop-blur-2xl md:hidden">
           <nav
             aria-label="Navegación móvil"
-            className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 sm:px-6"
+            className="mx-auto flex max-w-7xl flex-col gap-1.5 px-4 py-4 sm:px-6"
           >
             {NAV_LINKS.map((link) => (
               <button
@@ -148,7 +148,7 @@ const Navbar = () => {
                 aria-current={activeSection === link.id ? 'page' : undefined}
                 className={`min-h-11 rounded-xl px-4 py-3 text-left text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
                   activeSection === link.id
-                    ? 'bg-slate-900 text-emerald-400'
+                    ? 'bg-slate-900 text-emerald-400 font-semibold'
                     : 'text-slate-300 hover:bg-slate-900 hover:text-white'
                 }`}
               >
@@ -157,7 +157,7 @@ const Navbar = () => {
             ))}
 
             <a
-              href="/cv-java.pdf"
+              href="/assets/CV PabloPerez.pdf"
               download
               className="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm font-semibold text-emerald-400 transition-all duration-300 hover:bg-emerald-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             >

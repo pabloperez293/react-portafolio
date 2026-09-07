@@ -2,7 +2,7 @@
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import { FiDownload } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import imgLogo from './assets/yo.png';
+import imgLogo from './yo.png';
 
 import useActiveSection from '../../hooks/useActiveSection';
 

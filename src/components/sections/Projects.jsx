@@ -65,10 +65,10 @@ const Projects = () => {
                     console.error('Error cargando la imagen:', currentProject.image);
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/80 to-slate-950/40" />
               </div>
             ) : (
-              <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 opacity-90" />
+              <div className="absolute inset-0 z-0 bg-linear-to-br from-slate-900 via-slate-950 to-slate-900 opacity-90" />
             )}
 
             <AnimatePresence initial={false} custom={direction} mode="wait">

@@ -10,7 +10,6 @@ const NAV_LINKS = [
   { id: 'sobre-mi', label: 'Sobre mí' },
   { id: 'experiencia', label: 'Experiencia' },
   { id: 'proyectos', label: 'Proyectos' },
-  { id: 'contacto', label: 'Contacto' },
 ];
 
 const Navbar = () => {

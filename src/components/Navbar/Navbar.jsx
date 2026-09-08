@@ -16,9 +16,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const activeSection = useActiveSection(
-    NAV_LINKS.map((item) => item.id)
-  );
+  const activeSection = useActiveSection(NAV_LINKS.map((item) => item.id));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,21 +24,15 @@ const Navbar = () => {
     };
 
     handleScroll();
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
-
     if (!section) return;
 
     const offset = section.getBoundingClientRect().top + window.scrollY - 88;
-
     window.scrollTo({
       top: offset,
       behavior: 'smooth',
@@ -78,11 +70,8 @@ const Navbar = () => {
           </span>
         </button>
 
-        {/* Navegación desktop */}
-        <nav
-          aria-label="Navegación principal"
-          className="hidden items-center gap-1 md:flex"
-        >
+        {/* Navegación Desktop */}
+        <nav aria-label="Navegación principal" className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => (
             <button
               key={link.id}
@@ -100,7 +89,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* CTA desktop */}
+        {/* Botón CV Desktop */}
         <a
           href="/assets/CV PabloPerez.pdf"
           download
@@ -110,7 +99,7 @@ const Navbar = () => {
           CV
         </a>
 
-        {/* Botón mobile */}
+        {/* Botón Menú Mobile */}
         <button
           type="button"
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
@@ -123,22 +112,15 @@ const Navbar = () => {
             animate={{ rotate: open ? 90 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            {open ? (
-              <FaXmark className="h-5 w-5" />
-            ) : (
-              <FaBars className="h-5 w-5" />
-            )}
+            {open ? <FaXmark className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
           </motion.span>
         </button>
       </div>
 
-      {/* Menú mobile */}
+      {/* Menú Flotante Mobile */}
       {open && (
         <div className="border-t border-slate-800 bg-slate-950/98 backdrop-blur-2xl md:hidden">
-          <nav
-            aria-label="Navegación móvil"
-            className="mx-auto flex max-w-7xl flex-col gap-1.5 px-4 py-4 sm:px-6"
-          >
+          <nav aria-label="Navegación móvil" className="mx-auto flex max-w-7xl flex-col gap-1.5 px-4 py-4 sm:px-6">
             {NAV_LINKS.map((link) => (
               <button
                 key={link.id}

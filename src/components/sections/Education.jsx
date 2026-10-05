@@ -1,21 +1,21 @@
 // Componente Education: detalla la formación académica y certificaciones obtenidas.
-import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { X, ExternalLink, Award, GraduationCap, Download } from 'lucide-react';
-import SectionHeader from '../ui/SectionHeader';
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { X, ExternalLink, Award, GraduationCap, Download } from "lucide-react";
+import SectionHeader from "../ui/SectionHeader";
 import { CERTIFICATIONS, EDUCATION } from "../../constants";
 
-const spring = { type: 'spring', stiffness: 400, damping: 25 };
+const spring = { type: "spring", stiffness: 400, damping: 25 };
 
 const getStatusBadgeClass = (status) => {
-  const normalized = status?.toLowerCase() || '';
-  if (normalized.includes('curso')) {
-    return 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400';
+  const normalized = status?.toLowerCase() || "";
+  if (normalized.includes("curso")) {
+    return "border-emerald-500/30 bg-emerald-500/10 text-emerald-400";
   }
-  if (normalized.includes('finalizado') || normalized.includes('complet')) {
-    return 'border-indigo-500/30 bg-indigo-500/10 text-indigo-400';
+  if (normalized.includes("finalizado") || normalized.includes("complet")) {
+    return "border-indigo-500/30 bg-indigo-500/10 text-indigo-400";
   }
-  return 'border-slate-700 bg-slate-800/80 text-slate-400';
+  return "border-slate-700 bg-slate-800/80 text-slate-400";
 };
 
 const Education = () => {
@@ -25,26 +25,30 @@ const Education = () => {
     if (!selectedCert) return;
 
     const handleEscape = (event) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         setSelectedCert(null);
       }
     };
 
-    window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
   }, [selectedCert]);
 
-  const isPdf = selectedCert?.file?.toLowerCase().endsWith('.pdf');
+  const isPdf = selectedCert?.file?.toLowerCase().endsWith(".pdf");
 
   return (
-    <section id="education" className="scroll-mt-20 bg-slate-950 py-10 text-white sm:py-16 lg:py-20">
+    <section
+      id="education"
+      className="scroll-mt-20 bg-slate-950 py-10 text-white sm:py-16 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Educación & Certificaciones"
           subtitle="Formación continua con foco en programación, análisis y tecnologías modernas."
         />
 
-        <div className="mt-8 grid gap-6 sm:mt-10 lg:grid-cols-2 lg:gap-8">
+        <div className="mt-8 grid gap-5 sm:mt-10 sm:gap-6 lg:grid-cols-2 lg:gap-8">
+          {" "}
           {/* Formación Académica */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -70,12 +74,16 @@ const Education = () => {
                 >
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                     <div className="min-w-0 flex-1">
-                      <p className="text-base font-bold text-slate-100 sm:text-lg leading-snug">{item.title}</p>
-                      <p className="mt-1 text-xs font-medium text-slate-400 sm:text-sm">{item.institution}</p>
+                      <p className="text-base font-bold text-slate-100 sm:text-lg leading-snug">
+                        {item.title}
+                      </p>
+                      <p className="mt-1 text-xs font-medium text-slate-400 sm:text-sm">
+                        {item.institution}
+                      </p>
                     </div>
                     <span
                       className={`inline-flex shrink-0 self-start rounded-full border px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider sm:text-xs ${getStatusBadgeClass(
-                        item.status
+                        item.status,
                       )}`}
                     >
                       {item.status}
@@ -88,7 +96,6 @@ const Education = () => {
               ))}
             </div>
           </motion.div>
-
           {/* Certificaciones */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -122,7 +129,9 @@ const Education = () => {
                         </p>
                         <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-500 transition-colors group-hover:text-emerald-400" />
                       </div>
-                      <p className="mt-0.5 text-xs font-medium text-slate-400 sm:text-sm">{cert.detail}</p>
+                      <p className="mt-0.5 text-xs font-medium text-slate-400 sm:text-sm">
+                        {cert.detail}
+                      </p>
                     </div>
                     <span className="shrink-0 text-xs font-semibold uppercase tracking-wider text-slate-500 sm:text-sm self-start sm:self-auto">
                       {cert.date}
@@ -149,14 +158,16 @@ const Education = () => {
               initial={{ scale: 0.95, y: 20, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+              transition={{ type: "spring", stiffness: 350, damping: 25 }}
               className="relative flex max-h-[90dvh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl sm:rounded-3xl"
               onClick={(event) => event.stopPropagation()}
             >
               <div className="flex items-center justify-between border-b border-slate-800 px-4 py-3 gap-3 sm:px-6 sm:py-4">
                 <div className="flex min-w-0 flex-1 items-center gap-2.5">
                   <Award className="h-5 w-5 shrink-0 text-emerald-400" />
-                  <h4 className="truncate text-sm font-bold text-slate-100 sm:text-base">{selectedCert.title}</h4>
+                  <h4 className="truncate text-sm font-bold text-slate-100 sm:text-base">
+                    {selectedCert.title}
+                  </h4>
                 </div>
                 <div className="flex shrink-0 items-center gap-2">
                   {selectedCert.file && (

@@ -6,9 +6,11 @@ import {
   FiGithub,
   FiLinkedin,
   FiMail,
+  FiPhone,
 } from "react-icons/fi";
+import { HERO_PROFILES, PROFILE } from "../../constants";
+import { FaTiktok } from "react-icons/fa6";
 
-import { HERO_PROFILES } from "../../constants";
 import perfil from "../../assets/yo.png";
 
 const PROFILE_OPTIONS = [
@@ -67,7 +69,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[calc(100vh-76px)] overflow-hidden bg-slate-950 pt-20 text-white lg:pt-0"
+      className="relative overflow-hidden bg-slate-950 pt-24 text-white sm:pt-28 lg:min-h-[calc(100vh-76px)] lg:pt-0"
     >
       {/* Fondo decorativo */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -76,8 +78,8 @@ const Hero = () => {
         <div className="absolute -bottom-30 left-1/3 h-60 w-60 rounded-full bg-red-500/3 blur-[110px] sm:h-72 sm:w-72 sm:blur-[130px]" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-76px)] max-w-7xl items-center px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid w-full items-center gap-10 lg:gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+<div className="relative mx-auto flex max-w-7xl items-center px-4 py-12 sm:px-6 sm:py-16 lg:min-h-[calc(100vh-76px)] lg:px-8 lg:py-16">        <div className="grid w-full items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          {" "}
           {/* Columna izquierda */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -178,9 +180,11 @@ const Hero = () => {
             <div className="my-6 h-px max-w-2xl bg-gradient-to-r from-slate-800 via-slate-800 to-transparent sm:my-8" />
 
             {/* Redes */}
-            <div className="mt-6 flex items-center gap-3">
+            {/* Redes y contacto */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              {/* GitHub */}
               <a
-                href="https://github.com/pabloperez293"
+                href={PROFILE.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub de Pablo Perez"
@@ -189,8 +193,9 @@ const Hero = () => {
                 <FiGithub className="h-5 w-5" />
               </a>
 
+              {/* LinkedIn */}
               <a
-                href="https://www.linkedin.com/in/devpabloperez"
+                href={PROFILE.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn de Pablo Perez"
@@ -199,12 +204,50 @@ const Hero = () => {
                 <FiLinkedin className="h-5 w-5" />
               </a>
 
+              {/* TikTok */}
               <a
-                href="mailto:pablodevperez@gmail.com"
-                aria-label="Enviar email a Pablo Perez"
+                href={PROFILE.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok de Pablo Perez"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900 text-slate-400 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                <FaTiktok className="h-5 w-5" />
+              </a>
+
+              {/* Email */}
+              <a
+                href={`mailto:${PROFILE.email}`}
+                aria-label={`Enviar email a ${PROFILE.name}`}
                 className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900 text-slate-400 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
               >
                 <FiMail className="h-5 w-5" />
+              </a>
+
+              {/* Teléfono */}
+              <a
+                href={`tel:${PROFILE.phoneRaw}`}
+                aria-label={`Llamar a ${PROFILE.name}`}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-800 bg-slate-900 text-slate-400 transition-all duration-300 hover:border-emerald-500/30 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                <FiPhone className="h-5 w-5" />
+              </a>
+            </div>
+
+            {/* Datos de contacto */}
+            <div className="mt-4 flex flex-col gap-2 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
+              <a
+                href={`tel:${PROFILE.phoneRaw}`}
+                className="transition-colors hover:text-emerald-400"
+              >
+                {PROFILE.phone}
+              </a>
+
+              <a
+                href={`mailto:${PROFILE.email}`}
+                className="break-all transition-colors hover:text-emerald-400"
+              >
+                {PROFILE.email}
               </a>
             </div>
 
@@ -220,7 +263,6 @@ const Hero = () => {
               Conocé mi perfil
             </button>
           </motion.div>
-
           {/* Columna derecha */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}

@@ -3,15 +3,28 @@ import todo from '../assets/todo.png';
 import elam from '../assets/elam.png';
 import galeria from '../assets/galeria.png';
 
+// Certificados
+import backendJavaCert from '../assets/Back-End__Java_-_Certificacin.pdf';
+import desarrolloWebCert from '../assets/DesarrolloWeb.jpeg';
+import redHatCert from '../assets/redHat.jpeg';
+import frontendCert from '../assets/Front_-_Certificacin.pdf';
+
+// CV
+import cvPablo from '../assets/CV Pablo Antonio Perez.pdf.pdf';
 
 export const PROFILE = {
   name: "Pablo Perez",
   role: "Analista Funcional | IT Business Analyst Jr. & Java Developer",
   email: "pablodevperez@gmail.com",
-  phone: "+54 9 11 7236-1058",
+  phone: "+54 9 11 4031-1401",
+  phoneRaw: "+5491140311401",
   location: "Buenos Aires, Argentina",
-  linkedin: "https://linkedin.com/in/devpabloperez",
-  github: "https://github.com/pabloperezdev",
+
+  linkedin: "https://www.linkedin.com/in/devpabloperez",
+  github: "https://github.com/pabloperez293",
+  tiktok: "https://www.tiktok.com/@pablitodesarrollador",
+
+  cv: cvPablo,
 };
 
 export const HERO_PROFILES = {
@@ -162,19 +175,19 @@ export const CERTIFICATIONS = [
     title: "Talent Tech 2026",
     detail: "Backend Java Developer",
     date: "2026",
-    file: "/src/assets/Back-End__Java_-_Certificacin.pdf",
+    file: backendJavaCert,
   },
   {
     title: "Coder House 2025",
-    detail: "Web / React.js",
+    detail: "Desarrollo Web / React.js",
     date: "2025",
-    file: "/src/assets/DesarrolloWeb.jpeg",
+    file: desarrolloWebCert,
   },
   {
     title: "Red Hat System Administration I",
     detail: "Linux & DevOps básico",
     date: "2024",
-    file: "/src/assets/RedHat.jpeg",
+    file: redHatCert,
   },
   {
     title: "Inglés Técnico B1",
@@ -183,12 +196,11 @@ export const CERTIFICATIONS = [
   },
   {
     title: "Front-End Developer",
-    detail: "Diseñador de paginas web y aplicaciones web",
+    detail: "Diseño y desarrollo de páginas y aplicaciones web",
     date: "2024",
-    file: "/src/assets/Front_-_Certificacin.pdf",
+    file: frontendCert,
   },
 ];
-
 export const PROJECTS = [
   {
     title: 'Tiziana Online - E-Commerce',
